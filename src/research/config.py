@@ -14,6 +14,9 @@ DEFAULTS = {
     "api_keys": {
         "yuandian_key": "",
     },
+    "api_endpoints": {
+        "yuandian": "",
+    },
     "opencli": {
         "public_only": False,
         "timeout": 30,

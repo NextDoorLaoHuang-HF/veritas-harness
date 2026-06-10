@@ -5,13 +5,17 @@ from research.backends.protocol import (
 )
 from research.config import load_config
 
-# 元典开放平台真实 API 网关（法意科技=元典母公司）
-# open.chineselaw.com 是用户门户域名，不提供 API 端点
-# 真实 API 域名由 open.chineselaw.com 的 CSP 响应头泄露：
-#   Content-Security-Policy: default-src 'self' https://YUANDIAN_API_BASE_PLACEHOLDER; ...
-# 验证：curl https://YUANDIAN_API_BASE_PLACEHOLDER/open/law_vector_search \
-#        -H "X-API-Key: $KEY" -d '{"query":"test"}' → code=201
-API_BASE = "https://YUANDIAN_API_BASE_PLACEHOLDER/open"
+# 元典开放平台 API 后端
+# API_BASE 可通过配置文件 [api_endpoints] yuandian 覆盖。
+# 未提供时使用下方默认值（开源占位符，实际部署需替换为真实端点）。
+def _get_api_base() -> str:
+    cfg = load_config()
+    override = cfg.get("api_endpoints", {}).get("yuandian", "")
+    if override:
+        return override.rstrip("/")
+    return "https://YUANDIAN_API_ENDPOINT_PLACEHOLDER/open"
+
+API_BASE = _get_api_base()
 
 
 class YuandianBackend(ResearchBackend):
