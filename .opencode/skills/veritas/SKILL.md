@@ -307,7 +307,7 @@ veritas search --backend yuandian --type law \
 
 ```bash
 KEY=$(grep yuandian_key ~/.config/research-cli/config.toml | sed 's/.*= *"\(.*\)"/\1/')
-curl -s -X POST "<YUANDIAN_API_ENDPOINT>/open/rh_fg_search" \
+curl -s -X POST "https://open.chineselaw.com/open/rh_fg_search" \
   -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
   -d '{"keyword":"餐饮","top_k":15,"dy":"北京","fbrq_start":"2026-05-01","fbrq_end":"2026-06-05"}'
 ```
@@ -323,7 +323,7 @@ curl -s -X POST "<YUANDIAN_API_ENDPOINT>/open/rh_fg_search" \
 
 **API base（最常见的错误源）**
 
-真实端点：`<YUANDIAN_API_ENDPOINT>`。**不是** `https://open.chineselaw.com`。
+真实端点：`https://open.chineselaw.com/open`。**不是** `https://open.chineselaw.com`。
 错误地址会返回 HTML/JSON 错配，401 报"key 无效"是**伪装**——实际是路由不通或鉴权头错位。
 
 **鉴权**：仅 `X-API-Key` 一个 header，**不要**带 `Authorization: Bearer`（元典不识别，会返 401）。

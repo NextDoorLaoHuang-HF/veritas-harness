@@ -7,13 +7,13 @@ from research.config import load_config
 
 # 元典开放平台 API 后端
 # API_BASE 可通过配置文件 [api_endpoints] yuandian 覆盖。
-# 未提供时使用下方默认值（开源占位符，实际部署需替换为真实端点）。
+# 未提供时使用公开端点 https://open.chineselaw.com/open
 def _get_api_base() -> str:
     cfg = load_config()
     override = cfg.get("api_endpoints", {}).get("yuandian", "")
     if override:
         return override.rstrip("/")
-    return "https://YUANDIAN_API_ENDPOINT_PLACEHOLDER/open"
+    return "https://open.chineselaw.com/open"
 
 API_BASE = _get_api_base()
 
