@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "admissible": 4,
+  "dropped": 0,
+  "audit_verdict": "pass",
+  "report_path": "final-report.md",
+  "evidence_count": 10
+}

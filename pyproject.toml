@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veritas-harness"
+version = "0.1.0"
+description = "Quality assurance harness for AI research reports"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31.0",
+    "toml>=0.10.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[project.scripts]
+veritas = "research.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

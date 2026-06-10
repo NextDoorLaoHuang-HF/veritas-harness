@@ -1,0 +1,29 @@
+# research-cli configuration
+# Copy to ~/.config/research-cli/config.toml and fill local values.
+# Never commit a real config file or API key to version control.
+
+[api_keys]
+yuandian_key = ""
+
+[opencli]
+public_only = false
+timeout = 30
+inter_command_delay = 3.0
+default_sites = ""
+
+[search]
+default_limit = 10
+max_concurrent = 4
+
+[run_dir]
+base = ".research/runs"
+
+[reader_selfhost]
+# Optional: absolute path to a local reader-selfhost checkout.
+# Leave empty to disable automatic local server startup.
+dir = ""
+command = "node src/server.js"
+port = 3099
+# Optional: override runtime files. Empty values use OS temporary/cache directories.
+pid_file = ""
+puppeteer_cache_dir = ""

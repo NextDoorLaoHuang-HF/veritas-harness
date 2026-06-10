@@ -1,0 +1,19 @@
+__pycache__
+*.pyc
+*.egg-info/
+dist/
+build/
+.venv/
+
+# 研究运行产物（CLI 默认在 CWD 建 .research/runs/，见 .opencode/skills/veritas/SKILL.md）
+# 客户端研究请显式 --run-dir 指向 ~/.hermes/scratch/ 或客户目录，避免污染本仓
+.research/
+.env
+.env.*
+!.env.example
+config.toml
+*.local.toml
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log

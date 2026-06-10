@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "做一份 general 类型研究报告：2026 年以来中国餐饮行业食品安全监管变化，要求联网检索、S# 引用、verify/finalize 后交付。",
+    "expected": "Agent 应先选择安全 run-dir，优先用 websearch/webfetch 或 opencli 搜索并抓取，草稿中使用 [S#](url) 内联引用；general 证据表保持 3 列（来源/类型/状态）且不预填标签列，末尾包含 *完成时间: ...Z*，最后运行 verify 与 finalize。"
+  },
+  {
+    "id": 2,
+    "prompt": "查找并撰写 practical-guide：用人单位如何处理员工竞业限制违约，要求引用精确法条和真实案号。",
+    "expected": "Agent 应进行 veritas-harness 元典前置检查；使用 yuandian 或可靠中文法律搜索获取法规/案例；不得编造案号或条文号；引用至少 3 处精确法条，必要时运行 legal verify-citations，再 verify/finalize。"
+  },
+  {
+    "id": 3,
+    "prompt": "最近北京餐饮行业有什么新法规？如果需要以后持续跟踪，也给出后续方案。",
+    "expected": "Agent 应识别首次研究不能直接依赖空 regtrack 库，先用 search --backend yuandian/opencli 检索；按法规/通知/报告分类并说明覆盖度。只有在首次研究后，才建议 regtrack add/check 作为后续持续监控。"
+  }
+]
