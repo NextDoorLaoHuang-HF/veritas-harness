@@ -167,6 +167,10 @@ def cmd_config(args):
 [api_keys]
 yuandian_key = ""
 
+# API 端点覆盖（留空使用默认公开端点）
+[api_endpoints]
+yuandian = ""
+
 [opencli]
 public_only = false
 timeout = 30
